@@ -1,17 +1,19 @@
-import java.awt.Color;
+//import java.awt.Color;
 import java.util.HashMap;
 
-public class CampoEstatistica
+
+@SuppressWarnings("rawtypes")
+public class CampoEstatistica 
 {
     private HashMap<Class, Contador> contadores;
     private boolean contadoresValidos;
-
+//ok
     public CampoEstatistica()
     {
         contadores = new HashMap<Class, Contador>();
         contadoresValidos = true;
     }
-
+//ok
     public String getPopulationDetails(Campo campo)
     {
         StringBuffer buffer = new StringBuffer();
@@ -27,7 +29,7 @@ public class CampoEstatistica
         }
         return buffer.toString();
     }
-    
+//ok
     public void redefine()
     {
         contadoresValidos = false;
@@ -36,7 +38,7 @@ public class CampoEstatistica
             contador.reset();
         }
     }
-
+//ok 
     public void incrementaContador(Class animalClass)
     {
         Contador contador = contadores.get(animalClass);
@@ -46,12 +48,12 @@ public class CampoEstatistica
         }
         contador.increment();
     }
-
+//ok
     public void contadorFinalizado()
     {
         contadoresValidos = true;
     }
-
+//ok
     public boolean ehViavel(Campo campo)
     {
         int nonZero = 0;
@@ -66,7 +68,7 @@ public class CampoEstatistica
         }
         return nonZero > 1;
     }
-    
+//ok
     private void geraContadores(Campo campo)
     {
         redefine();

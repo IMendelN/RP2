@@ -16,7 +16,7 @@ public class LoboGuara
     private Localizacao localizacao;
     private Campo campo;
     private int nivelFome;
-
+//ok
     public LoboGuara(boolean idadeRandomica, Campo campo, Localizacao localizacao)
     {
         idade = 0;
@@ -31,7 +31,7 @@ public class LoboGuara
             nivelFome = VALOR_FOME_OVELHA;
         }
     }
-    
+//ok
     public void caca(List<LoboGuara> novosLobos)
     {
         incrementaIdade();
@@ -49,17 +49,17 @@ public class LoboGuara
             }
         }
     }
-
+//ok
     public boolean estaVivo()
     {
         return vivo;
     }
-
+//ok
     public Localizacao getLocalizacao()
     {
         return localizacao;
     }
-    
+//ok
     private void setLocalizacao(Localizacao newLocalizacao)
     {
         if(localizacao != null) {
@@ -68,7 +68,7 @@ public class LoboGuara
         localizacao = newLocalizacao;
         campo.lugar(this, newLocalizacao);
     }
-    
+//ok     
     private void incrementaIdade()
     {
         idade++;
@@ -76,7 +76,7 @@ public class LoboGuara
             setMorte();
         }
     }
-    
+//Duvidas sobre onde utilizar, atualmente add em procura comida, talvez devesse ser usado em caca;
     private void incrementaFome()
     {
         nivelFome--;
@@ -84,7 +84,9 @@ public class LoboGuara
             setMorte();
         }
     }
-    
+//ok (teoricamente)    
+    // Add ifs para testar se o animal é uma ovelha e se a ovelha está viva;
+    //Add incrementaFome();
     private Localizacao procuraComida(Localizacao localizacao)
     {
         List<Localizacao> adjacente = campo.localizacoesAdjacentes(localizacao);
@@ -92,14 +94,19 @@ public class LoboGuara
         while(it.hasNext()) {
             Localizacao onde = it.next();
             Object animal = campo.getObjectAt(onde);
-        	Ovelha ovelha = (Ovelha) animal;
+            if(animal instanceof Ovelha){
+        	Ovelha ovelha = (Ovelha)animal;
+        	if(ovelha.estaViva()) {
             ovelha.setMorte();
             nivelFome = VALOR_FOME_OVELHA;
             return onde;
+        	}else{incrementaFome();}
+            }
+            
         }
         return null;
     }
-    
+//ok 
     private void daALuz(List<LoboGuara> novosLobos)
     {
         List<Localizacao> livre = campo.localizacoesAdjacentesLivres(localizacao);
@@ -110,7 +117,7 @@ public class LoboGuara
             novosLobos.add(jovem);
         }
     }
-    
+//ok    
     private int procria()
     {
         int nascimentos = 0;
@@ -119,12 +126,12 @@ public class LoboGuara
         }
         return nascimentos;
     }
-
+//ok
     private boolean podeProcriar()
     {
         return idade > IDADE_PROCRIACAO;
     }
-
+//ok
     private void setMorte()
     {
         vivo = false;
