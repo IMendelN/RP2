@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+//Elanderson C Gomes
+
 public class SimuladorTela extends JFrame
 {
     private static final Color COR_VAZIA = Color.white;
