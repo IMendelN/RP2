@@ -32,8 +32,10 @@ public class LoboGuara
         }
     }
 //ok
+// adicionei o incrementa fome aqui;
     public void caca(List<LoboGuara> novosLobos)
     {
+    	incrementaFome();
         incrementaIdade();
         if(vivo) {
             daALuz(novosLobos);            
@@ -76,7 +78,7 @@ public class LoboGuara
             setMorte();
         }
     }
-//Duvidas sobre onde utilizar, atualmente add em procura comida, talvez devesse ser usado em caca;
+//ok
     private void incrementaFome()
     {
         nivelFome--;
@@ -84,34 +86,43 @@ public class LoboGuara
             setMorte();
         }
     }
-//ok (teoricamente)    
-    // Add ifs para testar se o animal é uma ovelha e se a ovelha está viva;
-    //Add incrementaFome();
+//ok (parcialmente)  
+// Add ifs para testar se o animal é uma ovelha e se a ovelha está viva;
+//os valores retornados devem ser retornados diretamente ou utilizando de uma variável como comentada?...
+//...ambos geram resultados diferentes mas aparentam estar corretos;
     private Localizacao procuraComida(Localizacao localizacao)
     {
+    	//Localizacao finalLobo = null;
+    	
         List<Localizacao> adjacente = campo.localizacoesAdjacentes(localizacao);
         Iterator<Localizacao> it = adjacente.iterator();
         while(it.hasNext()) {
             Localizacao onde = it.next();
             Object animal = campo.getObjectAt(onde);
             if(animal instanceof Ovelha){
-        	Ovelha ovelha = (Ovelha)animal;
+            	Ovelha ovelha = (Ovelha)animal;
         	if(ovelha.estaViva()) {
-            ovelha.setMorte();
-            nivelFome = VALOR_FOME_OVELHA;
-            return onde;
-        	}else{incrementaFome();}
+        		ovelha.setMorte();
+        		nivelFome = VALOR_FOME_OVELHA;
+        		//finalLobo = onde;
+        		return onde;
+        	}else{
+        		//finalLobo = null;
+        		return null;
+        		}
             }
             
         }
+        //return finalLobo;
         return null;
     }
 //ok 
+// arrumei correção for pois ele não estava testando se haviam localizações adjacentes livres para o filhote nascer;
     private void daALuz(List<LoboGuara> novosLobos)
     {
         List<Localizacao> livre = campo.localizacoesAdjacentesLivres(localizacao);
         int nascimentos = procria();
-        for(int b = 0; b < nascimentos; b++) {
+        for(int b = 0;( b < nascimentos) && (livre.size()>0); b++) {
             Localizacao loc = livre.remove(0);
             LoboGuara jovem = new LoboGuara(false, campo, loc);
             novosLobos.add(jovem);
@@ -121,7 +132,7 @@ public class LoboGuara
     private int procria()
     {
         int nascimentos = 0;
-        if(podeProcriar() && rand.nextDouble() < PROBABILIDADE_PROCRIACAO) {
+        if(podeProcriar() && rand.nextDouble() <= PROBABILIDADE_PROCRIACAO) {
             nascimentos = rand.nextInt(TAMANHO_MAXIMO_NINHADA) + 1;
         }
         return nascimentos;

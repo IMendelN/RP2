@@ -47,11 +47,13 @@ public class CampoEstatistica
             contadores.put(animalClass, contador);
         }
         contador.increment();
+        contadores.put(animalClass, contador);
     }
 //ok
+//correção: os contadores não eram setados como inválidos quando o codigo terminava, troquei "true" para  "false"
     public void contadorFinalizado()
     {
-        contadoresValidos = true;
+        contadoresValidos = false;
     }
 //ok
     public boolean ehViavel(Campo campo)
