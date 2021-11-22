@@ -13,7 +13,7 @@ public class Ovelha
     private boolean vivo;
     private Localizacao localizacao;
     private Campo campo;
-
+//ok
     public Ovelha(boolean randomAge, Campo campo, Localizacao localizacao)
     {
         idade = 0;
@@ -24,14 +24,14 @@ public class Ovelha
             idade = rand.nextInt(IDADE_MAXIMA);
         }
     }
-    
+//Trocado de == para != na linha 34
     public void corre(List<Ovelha> novasOvelhas)
     {
         incrementaIdade();
         if(vivo) {
             daALuz(novasOvelhas);            
             Localizacao newLocalizacao = campo.localizacaoAdjacenteLivre(localizacao);
-            if(newLocalizacao == null) { 
+            if(newLocalizacao != null) { 
                 setLocalizacao(newLocalizacao);
             }
             else {
@@ -39,12 +39,12 @@ public class Ovelha
             }
         }
     }
-    
+//ok    
     public boolean estaViva()
     {
         return vivo;
     }
-    
+//ok
     public void setMorte()
     {
         vivo = false;
@@ -54,12 +54,12 @@ public class Ovelha
             campo = null;
         }
     }
-    
+//ok
     public Localizacao getLocalizacao()
     {
         return localizacao;
     }
-    
+//ok  
     private void setLocalizacao(Localizacao newLocalizacao)
     {
         if(localizacao != null) {
@@ -68,35 +68,35 @@ public class Ovelha
         localizacao = newLocalizacao;
         campo.lugar(this, newLocalizacao);
     }
-
+//set morte add
     private void incrementaIdade()
     {
         idade++;
-        if(idade > IDADE_MAXIMA) {
-        	idade--;
+        if(idade >= IDADE_MAXIMA) {
+        	setMorte();
         }
     }
-    
+////add teste para analizar se existem campos adjacentes livres no "for".    
     private void daALuz(List<Ovelha> novasOvelhas)
     {
         List<Localizacao> livre = campo.localizacoesAdjacentesLivres(localizacao);
         int nascimentos = procria();
-        for(int b = 0; b < nascimentos; b++) {
+        for(int b = 0; (b < nascimentos) && (livre.size()>0); b++) {
             Localizacao loc = livre.remove(0);
             Ovelha jovem = new Ovelha(false, campo, loc);
             novasOvelhas.add(jovem);
         }
     }
-    
+//Alteração de == para <= linha 94    
     private int procria()
     {
         int nascimentos = 0;
-        if(podeProcriar() && rand.nextDouble() == PROBABILIDADE_PROCRIACAO) {
+        if(podeProcriar() && rand.nextDouble() <= PROBABILIDADE_PROCRIACAO) {
             nascimentos = rand.nextInt(TAMANHO_MAXIMO_NINHADA) + 1;
         }
         return nascimentos;
     }
-
+//ok
     private boolean podeProcriar()
     {
         return idade >= IDADE_PROCRIACAO;
