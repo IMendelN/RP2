@@ -1,30 +1,28 @@
 import java.awt.*;
-import java.awt.event.*;
+//import java.awt.event.*;
 import javax.swing.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-//Elanderson C Gomes
-
-public class SimuladorTela extends JFrame
-{
+//Esse SupressWarnings foi ideia do Dionas para tirar aquelas notificações chatas
+@SuppressWarnings("rawtypes")
+public class SimuladorTela extends JFrame{
     private static final Color COR_VAZIA = Color.white;
     private static final Color COR_INDEFINIDA = Color.gray;
 
-    private final String PREFIXO_ETAPA = "Etapa: ";
-    private final String PREFIXO_POPULACAO = "Populacao: ";
+    private final String PREFIXO_ETAPA = "> Etapa: ";
+    private final String PREFIXO_POPULACAO = "> Populacao: ";
     private JLabel rotuloEtapa, populacao;
     private VisaoCampo visaoCampo;
     
     private Map<Class, Color> cores;
     private CampoEstatistica estatisticas;
     
-    public SimuladorTela(int height, int width)
-    {
+    public SimuladorTela(int height, int width){
         estatisticas = new CampoEstatistica();
         cores = new LinkedHashMap<Class, Color>();
 
-        setTitle("Simulacao Coelhos and Raposas");
+        setTitle("Simulacao Ovelhas e Lobos");
         rotuloEtapa = new JLabel(PREFIXO_ETAPA, JLabel.CENTER);
         populacao = new JLabel(PREFIXO_POPULACAO, JLabel.CENTER);
         
@@ -40,13 +38,11 @@ public class SimuladorTela extends JFrame
         setVisible(true);
     }
     
-    public void setCor(Class animalClass, Color color)
-    {
+    public void setCor(Class animalClass, Color color){
         cores.put(animalClass, color);
     }
 
-    private Color getCor(Class animalClass)
-    {
+    private Color getCor(Class animalClass){
         Color coluna = cores.get(animalClass);
         if(coluna == null) {
             return COR_INDEFINIDA;
@@ -56,8 +52,7 @@ public class SimuladorTela extends JFrame
         }
     }
 
-    public void mostraStatus(int etapa, Campo campo)
-    {
+    public void mostraStatus(int etapa, Campo campo){
         if(!isVisible()) {
             setVisible(true);
         }
@@ -85,13 +80,9 @@ public class SimuladorTela extends JFrame
         visaoCampo.repaint();
     }
 
-    public boolean ehViavel(Campo campo)
-    {
-        return estatisticas.ehViavel(campo);
-    }
+    public boolean ehViavel(Campo campo){return estatisticas.ehViavel(campo);}
 
-    private class VisaoCampo extends JPanel
-    {
+    private class VisaoCampo extends JPanel{
         private final int GRID_VIEW_SCALING_FACTOR = 6;
 
         private int gridWidth, gridHeight;
@@ -100,21 +91,18 @@ public class SimuladorTela extends JFrame
         private Graphics g;
         private Image fieldImage;
 
-        public VisaoCampo(int height, int width)
-        {
+        public VisaoCampo(int height, int width){
             gridHeight = height;
             gridWidth = width;
             size = new Dimension(0, 0);
         }
 
-        public Dimension getPreferredSize()
-        {
+        public Dimension getPreferredSize(){
             return new Dimension(gridWidth * GRID_VIEW_SCALING_FACTOR,
                                  gridHeight * GRID_VIEW_SCALING_FACTOR);
         }
 
-        public void preparePaint()
-        {
+        public void preparePaint(){
             if(! size.equals(getSize())) {
                 size = getSize();
                 fieldImage = visaoCampo.createImage(size.width, size.height);
@@ -131,14 +119,12 @@ public class SimuladorTela extends JFrame
             }
         }
 
-        public void drawMark(int x, int y, Color color)
-        {
+        public void drawMark(int x, int y, Color color){
             g.setColor(color);
             g.fillRect(x * xScale, y * yScale, xScale-1, yScale-1);
         }
 
-        public void paintComponent(Graphics g)
-        {
+        public void paintComponent(Graphics g){
             if(fieldImage != null) {
                 Dimension currentSize = getSize();
                 if(size.equals(currentSize)) {
