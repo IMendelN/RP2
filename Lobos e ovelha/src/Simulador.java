@@ -39,7 +39,7 @@ public class Simulador{
         redefine();
     }
 
-    public void executaLongaSimulacao(){simulacao(379);}
+    public void executaLongaSimulacao(){simulacao(1000);}
     
     public void simulacao(int numEtapas){
         for(int etapa = 1; etapa <= numEtapas && tela.ehViavel(campo); etapa++) {
@@ -100,5 +100,9 @@ public class Simulador{
                 }
             }
         }
+    }
+//método getEtapa adicionado
+    public int getEtapa() {
+    	return etapa; 
     }
 }

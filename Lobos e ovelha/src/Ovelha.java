@@ -76,7 +76,7 @@ public class Ovelha
         	setMorte();
         }
     }
-////add teste para analizar se existem campos adjacentes livres no "for".    
+//add teste para analizar se existem campos adjacentes livres no "for".    
     private void daALuz(List<Ovelha> novasOvelhas)
     {
         List<Localizacao> livre = campo.localizacoesAdjacentesLivres(localizacao);
@@ -87,7 +87,7 @@ public class Ovelha
             novasOvelhas.add(jovem);
         }
     }
-//Alteração de == para <= linha 94    
+//Alteraçãoo de == para <= linha 94    
     private int procria()
     {
         int nascimentos = 0;

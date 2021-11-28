@@ -117,7 +117,7 @@ public class LoboGuara
         return null;
     }
 //ok 
-// arrumei correção for pois ele não estava testando se haviam localizações adjacentes livres para o filhote nascer;
+// Correção no for pois ele não estava testando se haviam localizações adjacentes livres para o filhote nascer;
     private void daALuz(List<LoboGuara> novosLobos)
     {
         List<Localizacao> livre = campo.localizacoesAdjacentesLivres(localizacao);
