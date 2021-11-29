@@ -82,7 +82,7 @@ public class SimuladorTela extends JFrame{
 
     public boolean ehViavel(Campo campo){return estatisticas.ehViavel(campo);}
 
-    private class VisaoCampo extends JPanel{
+	private class VisaoCampo extends JPanel{
         private final int GRID_VIEW_SCALING_FACTOR = 6;
 
         private int gridWidth, gridHeight;
