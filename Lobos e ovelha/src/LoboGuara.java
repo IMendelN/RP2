@@ -66,6 +66,7 @@ public class LoboGuara extends Animais
         		//finalLobo = onde;
         		return onde;
         	}else{
+                incrementaFome();
         		//finalLobo = null;
         		return null;
         		}
