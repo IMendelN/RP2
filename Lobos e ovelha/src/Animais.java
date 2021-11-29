@@ -7,7 +7,7 @@ public abstract class Animais {
     private boolean vivo;
     private Campo campo;
     
-    protected Animais(boolean idadeRandomica, Campo campo, Localizacao localizacao,int idadeMaxima) {
+    protected Animais(boolean idadeRandomica, Campo campo,int idadeMaxima) {
     	idade = 0;
         vivo = true;
         this.campo = campo;

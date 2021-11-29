@@ -16,7 +16,7 @@ public class LoboGuara extends Animais
 //ok
     public LoboGuara(boolean idadeRandomica, Campo campo, Localizacao localizacao)
     {
-        super(idadeRandomica,campo,localizacao,IDADE_MAXIMA);
+        super(idadeRandomica,campo,IDADE_MAXIMA);
         setLocalizacao(localizacao);
         if(idadeRandomica) {
             nivelFome = rand.nextInt(VALOR_FOME_OVELHA);

@@ -12,7 +12,7 @@ public class Ovelha extends Animais
     //ok
     public Ovelha(boolean idadeRandomica, Campo campo, Localizacao localizacao)
     {
-    	super(idadeRandomica,campo,localizacao,IDADE_MAXIMA);
+    	super(idadeRandomica,campo,IDADE_MAXIMA);
         setLocalizacao(localizacao);
     }
     
