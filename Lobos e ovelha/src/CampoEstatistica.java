@@ -50,7 +50,7 @@ public class CampoEstatistica
         contadores.put(animalClass, contador);
     }
 //ok
-//correção: os contadores não eram setados como inválidos quando o codigo terminava, troquei "true" para  "false"
+//correcao: os contadores nao eram setados como invalidos quando o codigo terminava, troquei "true" para  "false"
     public void contadorFinalizado()
     {
         contadoresValidos = false;

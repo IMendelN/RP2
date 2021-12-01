@@ -47,8 +47,8 @@ public class LoboGuara extends Animais
     }
 
 //ok (parcialmente)  
-// Add ifs para testar se o animal é uma ovelha e se a ovelha está viva;
-//os valores retornados devem ser retornados diretamente ou utilizando de uma variável como comentada?...
+// Add ifs para testar se o animal e uma ovelha e se a ovelha esta viva;
+//os valores retornados devem ser retornados diretamente ou utilizando de uma variavel como comentada?...
 //...ambos geram resultados diferentes mas aparentam estar corretos;
     private Localizacao procuraComida(Localizacao localizacao){
     	//Localizacao finalLobo = null;
@@ -77,7 +77,7 @@ public class LoboGuara extends Animais
         return null;
     }
     //ok
-    //Correção no for pois ele não estava testando se haviam localizações adjacentes livres para o filhote nascer;
+    //Correcao no for pois ele nao estava testando se haviam localizacoes adjacentes livres para o filhote nascer;
     private void daALuz(List<LoboGuara> novosLobos){
         List<Localizacao> livre = getCampo().localizacoesAdjacentesLivres(getLocalizacao());
         int nascimentos = procria(IDADE_PROCRIACAO, PROBABILIDADE_PROCRIACAO, TAMANHO_MAXIMO_NINHADA);

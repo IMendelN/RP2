@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-//Esse SupressWarnings foi ideia do Dionas para tirar aquelas notificaÃ§Ãµes chatas
 @SuppressWarnings({ "rawtypes", "serial" })
 public class SimuladorTela extends JFrame{
     private static final Color COR_VAZIA = Color.white;

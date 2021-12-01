@@ -101,7 +101,7 @@ public class Simulador{
             }
         }
     }
-//método getEtapa adicionado
+//metodo getEtapa adicionado
     public int getEtapa() {
     	return etapa; 
     }
