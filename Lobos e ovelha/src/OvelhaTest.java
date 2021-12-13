@@ -63,10 +63,10 @@ public class OvelhaTest {
 		Ovelha ovelha = new Ovelha(false, new Campo(50, 50), loc);
 		Localizacao newLocalizacao = new Localizacao(1, 1);
 
-		for (int i = 0; i < 40; i++)
+		for (int i = 0; i < 41; i++)
 			newLocalizacao = ovelha.incrementaIdade(40, loc);
 
-		assertEquals(ovelha.getIdade(), 40);
+		assertEquals(ovelha.getIdade(), 41);
 		assertFalse(ovelha.estaViva());
 		assertNull(newLocalizacao);
 	}

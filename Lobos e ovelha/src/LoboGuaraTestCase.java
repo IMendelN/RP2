@@ -92,10 +92,10 @@ public class LoboGuaraTestCase {
 		LoboGuara lobo = new LoboGuara(false, new Campo(50,50), loc);
 		Localizacao newLocalizacao = new Localizacao(1,1);
 		
-		for(int i= 0; i<16; i++)
+		for(int i= 0; i<17; i++)
 		newLocalizacao = lobo.incrementaIdade(16, loc);
 		
-		assertEquals(lobo.getIdade(), 16);
+		assertEquals(lobo.getIdade(), 17);
 		assertFalse(lobo.estaVivo());
 		assertNull(newLocalizacao);
 	}
