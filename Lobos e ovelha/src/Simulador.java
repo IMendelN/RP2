@@ -88,15 +88,16 @@ public class Simulador{
         campo.limpa();
         for(int linha = 0; linha < campo.getProfundidade(); linha++) {
             for(int coluna = 0; coluna < campo.getLargura(); coluna++) {
-                if(rand.nextDouble() < PROBABILIDADE_CRIACAO_OVELHA) {
-                    Localizacao localizacao = new Localizacao(linha, coluna);
-                    Ovelha ovelha = new Ovelha(false, campo, localizacao);
-                    ovelhas.add(ovelha);
-                }
-                else if(rand.nextDouble() < PROBABILIDADE_CRIACAO_LOBOGUARA) {
+            	if(rand.nextDouble() < PROBABILIDADE_CRIACAO_LOBOGUARA) {
                     Localizacao localizacao = new Localizacao(linha, coluna);
                     LoboGuara loboGuara = new LoboGuara(false, campo, localizacao);
                     lobos.add(loboGuara);
+                
+                }
+                else if(rand.nextDouble() < PROBABILIDADE_CRIACAO_OVELHA) {
+                    Localizacao localizacao = new Localizacao(linha, coluna);
+                    Ovelha ovelha = new Ovelha(false, campo, localizacao);
+                    ovelhas.add(ovelha);
                 }
             }
         }

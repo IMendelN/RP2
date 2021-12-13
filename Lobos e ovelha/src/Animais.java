@@ -20,7 +20,7 @@ public abstract class Animais {
     *ajustado para retornar a localizacao e setar a localizacao do como null quando o lobo morrer;*/
     protected Localizacao incrementaIdade(int idadeMaxima, Localizacao localizacao){
         idade++;
-        if(idade >= idadeMaxima) {
+        if(idade > idadeMaxima) {
             setMorte(localizacao);
             return null;
         }
@@ -50,7 +50,7 @@ public abstract class Animais {
     
     /*Tested*/ 
     protected boolean podeProcriar(int idadeProcriacao){
-        return idade > idadeProcriacao;
+        return idade >= idadeProcriacao;
     }
     
     /*Tested*/
