@@ -20,10 +20,6 @@ public class LoboGuaraTestCase {
 	@Test
 	public void testeIncrementaFomeMata() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		LoboGuara lobo = new LoboGuara(false, new Campo(50,50), new Localizacao(1,1));
-		//Localizacao loc = new Localizacao(1,1);
-		//Method procura = lobo.getClass().getDeclaredMethod("procuraComida");
-		//procura.setAccessible(true);
-		//procura(loc);
 		Method incrementaFome = lobo.getClass().getDeclaredMethod("incrementaFome");
 		incrementaFome.setAccessible(true);
 		for(int i=0; i < 7; i++) {
@@ -260,10 +256,13 @@ public class LoboGuaraTestCase {
 		assertEquals(lobo.getNivelFome(), 0);
 	}
 //--------------------------------------------------------------------------
+	/*
+	public List<LoboGuara> returnList(){
+		return new ArrayList<LoboGuara>();
+	}
 	
 	@Test
 	public void testeDaALuz() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
-		/*
 		Localizacao localizacao = new Localizacao(1,1);
 		Campo campo = new Campo(50,50);
 		
@@ -272,15 +271,16 @@ public class LoboGuaraTestCase {
 		
 		lobos.add(new LoboGuara(false, campo , localizacao));
 		
-		Method daALuz = lobo.getClass().getMethod("daALuz",lobos.getClass());
+		Method daALuz = lobo.getClass().getDeclaredMethod("daALuz",returnList());
 		daALuz.setAccessible(true);
 		
 		List<LoboGuara> novosLobos = (List<LoboGuara>) daALuz.invoke(lobo,lobos);
 		
 		lobos.addAll(novosLobos);
 		
-		assertNotNull(lobos);*/
-	}
+		assertNotNull(lobos);
+
+	}*/
 	@Test
 	public void testeAnimais() {
 		
