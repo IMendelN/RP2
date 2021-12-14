@@ -1,42 +1,51 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class SimuladorTest {
+public class SimuladorTest {
+
+	Simulador simulador;
+
+	
+	@Test
+	public void testSimulador() {
+	
+		simulador = new Simulador(1 ,1);
+		 
+	}
+	@Test
+	public void testSimulado() {
+	
+		simulador = new Simulador(-1 ,-1);
+		
+	}
+	 
+
 
 	@Test
-	void testSimulador() {
-		fail("Not yet implemented");
+	public void testExecutaLongaSimulacao() {
+		Simulador simuladorS = new Simulador(100, 100);
+		@SuppressWarnings("unused")
+		Campo campo = (Campo) simuladorS.getCampo();
+		
+		simuladorS.executaLongaSimulacao();
+	}
+ 
+	@Test
+	public void testSimulacao() {
+
 	}
 
 	@Test
-	void testSimuladorIntInt() {
-		fail("Not yet implemented");
+	public void testSimulacaoUmaEtapa() {
+		Simulador simuladorS = new Simulador();
+		simuladorS.executaLongaSimulacao();
 	}
 
 	@Test
-	void testExecutaLongaSimulacao() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSimulacao() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSimulacaoUmaEtapa() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testRedefine() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetEtapa() {
-		fail("Not yet implemented");
+	public void testRedefine() {
+		
+		
 	}
 
 }
