@@ -106,4 +106,8 @@ public class Simulador{
     public int getEtapa() {
     	return etapa; 
     }
+    public Object getCampo() {
+		
+		return campo;
+	}
 }
