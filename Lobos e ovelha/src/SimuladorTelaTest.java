@@ -1,27 +1,43 @@
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
+public class SimuladorTelaTest {
 
-class SimuladorTelaTest {
-
+	Simulador simulador;
+	private SimuladorTela simuladorTela;
+	
+	
 	@Test
-	void testSimuladorTela() {
-		fail("Not yet implemented");
+	public void testSimuladorTela() {
+	
+		simuladorTela = new SimuladorTela(50, 50);
 	}
 
 	@Test
-	void testSetCor() {
-		fail("Not yet implemented");
-	}
+	public void testSetCor() {
+		SimuladorTela SimuladorTela = new SimuladorTela(50, 50);
+		SimuladorTela.setCor(getClass(), null);
+	} 
 
 	@Test
-	void testMostraStatus() {
-		fail("Not yet implemented");
+	public void testMostraStatus() {
+		SimuladorTela SimuladorTela = new SimuladorTela(50, 50);
+		Campo campo = new Campo (50, 50);
+		SimuladorTela.mostraStatus(1, campo); 
 	}
+	 
+	@Test
+	public void getCor() {
+		simuladorTela = new SimuladorTela(50, 50);
+		SimuladorTela.getCor(getClass());
+	} 
 
 	@Test
-	void testEhViavel() {
-		fail("Not yet implemented");
+	public void testEhViavel() {
+		SimuladorTela SimuladorTela = new SimuladorTela(50, 50);
+		Campo Campo;
+		Campo = new Campo(50, 50);
+		SimuladorTela.ehViavel(Campo);
 	}
 
 }
+
