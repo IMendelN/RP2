@@ -41,7 +41,7 @@ public class SimuladorTela extends JFrame{
         cores.put(animalClass, color);
     }
 
-    public static getCor(Class animalClass){
+    public static Color getCor(Class animalClass){
         Color coluna = cores.get(animalClass);
         if(coluna == null) {
             return COR_INDEFINIDA;
