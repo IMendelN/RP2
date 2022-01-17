@@ -68,7 +68,6 @@ public class Main {
 
 		} catch (Exception e) {
 			System.out.println("!Caracter invalido!");
-			System.out.println("!Executando simulacao longa!");
 			r = 1;
 		}
 		s.nextLine();
@@ -102,7 +101,7 @@ public class Main {
 				s.nextLine();
 			} while (r == 1);
 		} else {
-
+			System.out.println("!Executando simulacao longa!");
 			simu.executaLongaSimulacao();
 		}
 
