@@ -11,8 +11,8 @@ public class RandomizadorTest {
 		Random rand = Randomizador.getRandom();
 		rand.nextDouble();
 		rand.nextInt(50);
-		rand.nextFloat(5000);
-		rand.nextLong(1000);
+		rand.nextFloat();
+		rand.nextLong();
 		Randomizador.reset();
 		assertEquals(rand, Randomizador.getRandom());
 	}
