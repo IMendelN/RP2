@@ -50,7 +50,7 @@ public class CampoTest {
 		Localizacao localizacao = new Localizacao(0, 0);
 		LoboGuara loboGuara = new LoboGuara(true, campo, localizacao);
 		Localizacao locAd = campo.localizacaoAdjacenteLivre(localizacao);
-		assertTrue(campo.getObjectAt(localizacao)instanceof LoboGuara);
+		assertTrue(campo.getObjectAt(localizacao) instanceof LoboGuara);
 	}
 
 	@Test
@@ -70,22 +70,23 @@ public class CampoTest {
 			}
 		}
 	}
-	
+
 	@Test
 	public void testeGetProfundidadeLargura() {
 		Campo campo = new Campo(20, 35);
 		assertEquals(campo.getLargura(), 35);
 		assertEquals(campo.getProfundidade(), 20);
 	}
-	
+
 	@Test
 	public void testeLocRandom() {
 		Campo campo = new Campo(1, 2);
 		Campo campo2 = new Campo(3, 3);
-		assertTrue(campo2.localizacoesAdjacentes(new Localizacao(1,1)).contains(campo2.localizacaoAdjacenteRandomica(new Localizacao(1,1))));
-		assertEquals(campo.localizacaoAdjacenteRandomica(new Localizacao(0,0)), new Localizacao(0,1));
+		assertTrue(campo2.localizacoesAdjacentes(new Localizacao(1, 1))
+				.contains(campo2.localizacaoAdjacenteRandomica(new Localizacao(1, 1))));
+		assertEquals(campo.localizacaoAdjacenteRandomica(new Localizacao(0, 0)), new Localizacao(0, 1));
 	}
-	
+
 	@Test
 	public void testeLocAdLivres2() {
 		Campo campo = new Campo(50, 50);

@@ -6,31 +6,27 @@ public class Ovelha extends Animais {
 	private static final double PROBABILIDADE_PROCRIACAO = 0.15;
 	private static final int TAMANHO_MAXIMO_NINHADA = 4;
 
-
 	private Localizacao localizacao;
 
-    //ok
-    public Ovelha(boolean idadeRandomica, Campo campo, Localizacao localizacao)
-    {
-    	super(idadeRandomica,campo,IDADE_MAXIMA);
-        setLocalizacao(localizacao);
-    }
-    
-    //Trocado de == para != na linha 34
-    public void corre(List<Ovelha> novasOvelhas)
-    {
-        localizacao = incrementaIdade(IDADE_MAXIMA, localizacao);
-        if(estaVivo()) {
-            daALuz(novasOvelhas);            
-            Localizacao newLocalizacao = getCampo().localizacaoAdjacenteLivre(localizacao);
-            if(newLocalizacao != null) { 
-                setLocalizacao(newLocalizacao);
-            }
-            else {
-                setMorte();
-            }
-        }
-    }
+	// ok
+	public Ovelha(boolean idadeRandomica, Campo campo, Localizacao localizacao) {
+		super(idadeRandomica, campo, IDADE_MAXIMA);
+		setLocalizacao(localizacao);
+	}
+
+	// Trocado de == para != na linha 34
+	public void corre(List<Ovelha> novasOvelhas) {
+		localizacao = incrementaIdade(IDADE_MAXIMA, localizacao);
+		if (estaVivo()) {
+			daALuz(novasOvelhas);
+			Localizacao newLocalizacao = getCampo().localizacaoAdjacenteLivre(localizacao);
+			if (newLocalizacao != null) {
+				setLocalizacao(newLocalizacao);
+			} else {
+				setMorte();
+			}
+		}
+	}
 
 	// ok
 	public Localizacao getLocalizacao() {
@@ -57,7 +53,6 @@ public class Ovelha extends Animais {
 		}
 	}
 
-	
 	public boolean estaViva() {
 		return estaVivo();
 	}
