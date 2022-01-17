@@ -1,20 +1,19 @@
 import java.util.Collections;
-//import java.util.Iterator;   
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 public class Campo {
 	private static final Random rand = Randomizador.getRandom();
-
+//Mudanca de atributo: o campo a partir de agora é um campo de Animais e não de Objects;
 	private int profundidade, largura;
-	private Object[][] campo;
+	private Animais[][] campo;
 
 //ok
 	public Campo(int profundidade, int largura) {
 		this.profundidade = profundidade;
 		this.largura = largura;
-		campo = new Object[profundidade][largura];
+		campo = new Animais[profundidade][largura];
 	}
 
 //ok   
@@ -31,23 +30,23 @@ public class Campo {
 		campo[localizacao.getLinha()][localizacao.getColuna()] = null;
 	}
 
-//ok    
-	public void lugar(Object animal, int linha, int coluna) {
+//Mudanca de parametro de Object para Animais
+	public void lugar(Animais animal, int linha, int coluna) {
 		lugar(animal, new Localizacao(linha, coluna));
 	}
 
 //ok 
-	public void lugar(Object animal, Localizacao localizacao) {
+	public void lugar(Animais animal, Localizacao localizacao) {
 		campo[localizacao.getLinha()][localizacao.getColuna()] = animal;
 	}
 
 //ok   
-	public Object getObjectAt(Localizacao localizacao) {
+	public Animais getObjectAt(Localizacao localizacao) {
 		return getObjectAt(localizacao.getLinha(), localizacao.getColuna());
 	}
 
 //ok 
-	public Object getObjectAt(int linha, int coluna) {
+	public Animais getObjectAt(int linha, int coluna) {
 		return campo[linha][coluna];
 	}
 

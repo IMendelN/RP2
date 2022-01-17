@@ -278,30 +278,20 @@ public class LoboGuaraTestCase {
 	}
 
 //--------------------------------------------------------------------------
-	/*
-	 * public List<LoboGuara> returnList(){ return new ArrayList<LoboGuara>(); }
-	 * 
-	 * @Test public void testeDaALuz() throws IllegalAccessException,
-	 * IllegalArgumentException, InvocationTargetException, NoSuchMethodException,
-	 * SecurityException{ Localizacao localizacao = new Localizacao(1,1); Campo
-	 * campo = new Campo(50,50);
-	 * 
-	 * LoboGuara lobo = new LoboGuara(false, campo , localizacao); List<LoboGuara>
-	 * lobos = new ArrayList<LoboGuara>();
-	 * 
-	 * lobos.add(new LoboGuara(false, campo , localizacao));
-	 * 
-	 * Method daALuz = lobo.getClass().getDeclaredMethod("daALuz",returnList());
-	 * daALuz.setAccessible(true);
-	 * 
-	 * List<LoboGuara> novosLobos = (List<LoboGuara>) daALuz.invoke(lobo,lobos);
-	 * 
-	 * lobos.addAll(novosLobos);
-	 * 
-	 * assertNotNull(lobos);
-	 * 
-	 * }
-	 */
+
+	  @Test public void testeDaALuz(){ Localizacao localizacao = new Localizacao(1,1); Campo
+	  campo = new Campo(50,50);
+	  
+	  LoboGuara lobo = new LoboGuara(true, campo , localizacao);
+	  LoboGuara lobo2 = new LoboGuara(true, campo , localizacao);
+	  LoboGuara lobo3 = new LoboGuara(true, campo , localizacao);
+	  List<LoboGuara> lobos = new ArrayList<LoboGuara>();
+	  lobo.caca(lobos);
+	  lobo2.caca(lobos);
+	  lobo3.caca(lobos);
+	  }
+
+
 	@Test
 	public void testeAnimais() {
 

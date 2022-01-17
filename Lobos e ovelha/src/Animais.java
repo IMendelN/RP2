@@ -53,7 +53,9 @@ public abstract class Animais {
 
 	/* Tested */
 	protected boolean podeProcriar(int idadeProcriacao) {
+
 		return idade >= idadeProcriacao && vivo;
+
 	}
 
 	/* Tested */

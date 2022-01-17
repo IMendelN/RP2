@@ -49,13 +49,14 @@ public class LoboGuara extends Animais {
 	// ok
 	// Add ifs para testar se o animal e uma ovelha e se a ovelha esta viva;
 
+	// mudanca de Object para Animais
 	private Localizacao procuraComida(Localizacao localizacao) {
 
 		List<Localizacao> adjacente = getCampo().localizacoesAdjacentes(localizacao);
 		Iterator<Localizacao> it = adjacente.iterator();
 		while (it.hasNext()) {
 			Localizacao onde = it.next();
-			Object animal = getCampo().getObjectAt(onde);
+			Animais animal = getCampo().getObjectAt(onde);
 			if (animal instanceof Ovelha) {
 				Ovelha ovelha = (Ovelha) animal;
 				if (ovelha.estaViva()) {

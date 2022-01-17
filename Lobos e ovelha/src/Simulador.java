@@ -22,8 +22,9 @@ public class Simulador {
 
 	public Simulador(int profundidade, int largura) {
 		if (largura < 0 || profundidade < 0) {
-			System.out.println("! As dimensÃµes devem ser maior do que zero !");
-			System.out.println("> Usando valores padrÃµes.");
+
+			System.out.println("As dimensoes devem ser maior do que zero !");
+			System.out.println("> Usando valores padroes.");
 			profundidade = PROFUNDIDADE_PADRAO;
 			largura = LARGURA_PADRAO;
 		}
@@ -31,6 +32,7 @@ public class Simulador {
 		ovelhas = new ArrayList<Ovelha>();
 		lobos = new ArrayList<LoboGuara>();
 		campo = new Campo(profundidade, largura);
+
 
 		tela = new SimuladorTela(profundidade, largura);
 		tela.setCor(Ovelha.class, Color.orange);
@@ -85,27 +87,50 @@ public class Simulador {
 		tela.mostraStatus(etapa, campo);
 	}
 
+	/*
+	 * Alterados contrutores para gerar animais com idades randomicas Erro no
+	 * segundo for(ainda não resolvido... informação: Will); Do while adicionado
+	 * para garantir que o campo vá cria um campo com animais, anteriorente
+	 * corria-se o risco de, especialmente em campos pequenos, gerar campos vazios
+	 * sem nenhum lobo e nenhuma ovelha.
+	 */
 	private void povoa() {
 		Random rand = Randomizador.getRandom();
 		campo.limpa();
-		for (int linha = 0; linha < campo.getProfundidade(); linha++) {
-			for (int coluna = 0; coluna < campo.getLargura(); coluna++) {
-				if (rand.nextDouble() < PROBABILIDADE_CRIACAO_LOBOGUARA) {
-					Localizacao localizacao = new Localizacao(linha, coluna);
-					LoboGuara loboGuara = new LoboGuara(false, campo, localizacao);
-					lobos.add(loboGuara);
+		do {
+			for (int linha = 0; linha < campo.getProfundidade(); linha++) {
+				for (int coluna = 0; coluna < campo.getLargura(); coluna++) {
+					if (rand.nextDouble() < PROBABILIDADE_CRIACAO_LOBOGUARA) {
+						Localizacao localizacao = new Localizacao(linha, coluna);
+						LoboGuara loboGuara = new LoboGuara(true, campo, localizacao);
+						lobos.add(loboGuara);
 
-				} else if (rand.nextDouble() < PROBABILIDADE_CRIACAO_OVELHA) {
-					Localizacao localizacao = new Localizacao(linha, coluna);
-					Ovelha ovelha = new Ovelha(false, campo, localizacao);
-					ovelhas.add(ovelha);
+					} else if (rand.nextDouble() < PROBABILIDADE_CRIACAO_OVELHA) {
+						Localizacao localizacao = new Localizacao(linha, coluna);
+						Ovelha ovelha = new Ovelha(true, campo, localizacao);
+						ovelhas.add(ovelha);
+					}
 				}
 			}
+		} while (!povoouCorretamente());
+	}
+	// Metodo criado para poder testar se o povoamento foi realizado corretamente
+
+	private boolean povoouCorretamente() {
+		if (campo.getLargura() == 1 && campo.getProfundidade() == 1) {
+			return !ovelhas.isEmpty() || !lobos.isEmpty();
+		} else {
+			return !ovelhas.isEmpty() && !lobos.isEmpty();
 		}
 	}
 
-//metodo getEtapa adicionado
 	public int getEtapa() {
 		return etapa;
 	}
+
+	public Campo getCampo() {
+
+		return campo;
+	}
+
 }

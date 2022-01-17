@@ -1,6 +1,5 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -12,6 +11,7 @@ public class AnimaisTest {
 		Localizacao loc = new Localizacao(1, 1);
 		Localizacao loc2 = new Localizacao(2, 2);
 		Campo campo = new Campo(50, 50);
+		@SuppressWarnings("unused")
 		LoboGuara lobo = new LoboGuara(true, campo, loc);
 		LoboGuara lobo2 = new LoboGuara(false, campo, new Localizacao(3, 3));
 		Ovelha ovelha = new Ovelha(false, campo, loc2);

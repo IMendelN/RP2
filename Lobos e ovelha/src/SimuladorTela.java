@@ -1,5 +1,4 @@
 import java.awt.*;
-//import java.awt.event.*;
 import javax.swing.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,7 +13,9 @@ public class SimuladorTela extends JFrame {
 	private JLabel rotuloEtapa, populacao;
 	private VisaoCampo visaoCampo;
 
-	private Map<Class, Color> cores;
+
+	private static Map<Class, Color> cores;
+
 	private CampoEstatistica estatisticas;
 
 	public SimuladorTela(int height, int width) {
@@ -41,7 +42,9 @@ public class SimuladorTela extends JFrame {
 		cores.put(animalClass, color);
 	}
 
-	private Color getCor(Class animalClass) {
+
+	public static Color getCor(Class animalClass) {
+
 		Color coluna = cores.get(animalClass);
 		if (coluna == null) {
 			return COR_INDEFINIDA;

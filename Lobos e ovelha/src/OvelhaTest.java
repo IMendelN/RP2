@@ -134,4 +134,24 @@ public class OvelhaTest {
 		assertNotNull(ovelha.getLocalizacao());
 	}
 
+	@Test
+	public void testeDaALuz() {
+		Localizacao localizacao = new Localizacao(1, 1);
+		Campo campo = new Campo(50, 50);
+
+		Ovelha ovelha = new Ovelha(true, campo, localizacao);
+		Ovelha ovelha2= new Ovelha(true, campo, localizacao);
+		Ovelha ovelha3 = new Ovelha(true, campo, localizacao);
+		Ovelha ovelha4 = new Ovelha(true, campo, localizacao);
+		Ovelha ovelha5= new Ovelha(true, campo, localizacao);
+		Ovelha ovelha6 = new Ovelha(true, campo, localizacao);
+		List<Ovelha> ovelhas = new ArrayList<Ovelha>();
+		ovelha.corre(ovelhas);
+		ovelha2.corre(ovelhas);
+		ovelha3.corre(ovelhas);
+		ovelha4.corre(ovelhas);
+		ovelha5.corre(ovelhas);
+		ovelha6.corre(ovelhas);
+	}
+
 }
