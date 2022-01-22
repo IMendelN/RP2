@@ -87,13 +87,6 @@ public class Simulador {
 		tela.mostraStatus(etapa, campo);
 	}
 
-	/*
-	 * Alterados contrutores para gerar animais com idades randomicas Erro no
-	 * segundo for(ainda não resolvido... informação: Will); Do while adicionado
-	 * para garantir que o campo vá cria um campo com animais, anteriorente
-	 * corria-se o risco de, especialmente em campos pequenos, gerar campos vazios
-	 * sem nenhum lobo e nenhuma ovelha.
-	 */
 	private void povoa() {
 		Random rand = Randomizador.getRandom();
 		campo.limpa();
@@ -114,7 +107,6 @@ public class Simulador {
 			}
 		} while (!povoouCorretamente());
 	}
-	// Metodo criado para poder testar se o povoamento foi realizado corretamente
 
 	private boolean povoouCorretamente() {
 		if (campo.getLargura() == 1 && campo.getProfundidade() == 1) {

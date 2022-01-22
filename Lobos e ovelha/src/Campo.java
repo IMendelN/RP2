@@ -5,18 +5,15 @@ import java.util.Random;
 
 public class Campo {
 	private static final Random rand = Randomizador.getRandom();
-//Mudanca de atributo: o campo a partir de agora é um campo de Animais e não de Objects;
 	private int profundidade, largura;
 	private Animais[][] campo;
 
-//ok
 	public Campo(int profundidade, int largura) {
 		this.profundidade = profundidade;
 		this.largura = largura;
 		campo = new Animais[profundidade][largura];
 	}
 
-//ok   
 	public void limpa() {
 		for (int linha = 0; linha < profundidade; linha++) {
 			for (int coluna = 0; coluna < largura; coluna++) {
@@ -25,38 +22,31 @@ public class Campo {
 		}
 	}
 
-//ok
 	public void limpa(Localizacao localizacao) {
 		campo[localizacao.getLinha()][localizacao.getColuna()] = null;
 	}
 
-//Mudanca de parametro de Object para Animais
 	public void lugar(Animais animal, int linha, int coluna) {
 		lugar(animal, new Localizacao(linha, coluna));
 	}
 
-//ok 
 	public void lugar(Animais animal, Localizacao localizacao) {
 		campo[localizacao.getLinha()][localizacao.getColuna()] = animal;
 	}
 
-//ok   
 	public Animais getObjectAt(Localizacao localizacao) {
 		return getObjectAt(localizacao.getLinha(), localizacao.getColuna());
 	}
 
-//ok 
 	public Animais getObjectAt(int linha, int coluna) {
 		return campo[linha][coluna];
 	}
 
-//ok
 	public Localizacao localizacaoAdjacenteRandomica(Localizacao localizacao) {
 		List<Localizacao> adjacent = localizacoesAdjacentes(localizacao);
 		return adjacent.get(0);
 	}
 
-//ok
 	public List<Localizacao> localizacoesAdjacentesLivres(Localizacao localizacao) {
 		List<Localizacao> livre = new LinkedList<Localizacao>();
 		List<Localizacao> adjacente = localizacoesAdjacentes(localizacao);
@@ -68,7 +58,6 @@ public class Campo {
 		return livre;
 	}
 
-//ok   
 	public Localizacao localizacaoAdjacenteLivre(Localizacao localizacao) {
 		List<Localizacao> livre = localizacoesAdjacentesLivres(localizacao);
 		if (!livre.isEmpty()) {
@@ -78,7 +67,6 @@ public class Campo {
 		}
 	}
 
-//ok
 	public List<Localizacao> localizacoesAdjacentes(Localizacao localizacao) {
 		assert localizacao != null : "Null localizacao passed to adjacentLocalizacoes";
 		List<Localizacao> localizacoes = new LinkedList<Localizacao>();
@@ -101,12 +89,10 @@ public class Campo {
 		return localizacoes;
 	}
 
-//ok
 	public int getProfundidade() {
 		return profundidade;
 	}
 
-//ok   
 	public int getLargura() {
 		return largura;
 	}

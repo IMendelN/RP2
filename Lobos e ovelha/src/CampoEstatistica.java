@@ -1,5 +1,3 @@
-
-//import java.awt.Color;
 import java.util.HashMap;
 
 @SuppressWarnings("rawtypes")
@@ -7,14 +5,11 @@ public class CampoEstatistica {
 	private HashMap<Class, Contador> contadores;
 	private boolean contadoresValidos;
 
-	// Contadores começando como validos, assim mesmo se não houvessem contadores
-	// eles estariam
 	public CampoEstatistica() {
 		contadores = new HashMap<Class, Contador>();
 		contadoresValidos = false;
 	}
 
-//ok
 	public String getPopulationDetails(Campo campo) {
 		StringBuffer buffer = new StringBuffer();
 		if (!contadoresValidos) {
@@ -30,7 +25,6 @@ public class CampoEstatistica {
 		return buffer.toString();
 	}
 
-//ok
 	public void redefine() {
 		contadoresValidos = false;
 		for (Class chave : contadores.keySet()) {
@@ -39,7 +33,6 @@ public class CampoEstatistica {
 		}
 	}
 
-//ok 
 	public void incrementaContador(Class animalClass) {
 		Contador contador = contadores.get(animalClass);
 		if (contador == null) {
@@ -50,13 +43,10 @@ public class CampoEstatistica {
 		contadores.put(animalClass, contador);
 	}
 
-//ok
-//correcao: os contadores nao eram setados como invalidos quando o codigo terminava, troquei "true" para  "false"
 	public void contadorFinalizado() {
 		contadoresValidos = false;
 	}
 
-//ok
 	public boolean ehViavel(Campo campo) {
 		int nonZero = 0;
 		if (!contadoresValidos) {
@@ -71,7 +61,6 @@ public class CampoEstatistica {
 		return nonZero > 1;
 	}
 
-//ok
 	private void geraContadores(Campo campo) {
 		redefine();
 		for (int linha = 0; linha < campo.getProfundidade(); linha++) {

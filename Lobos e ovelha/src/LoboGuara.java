@@ -13,7 +13,6 @@ public class LoboGuara extends Animais {
 	private Localizacao localizacao;
 	private int nivelFome;
 
-//ok
 	public LoboGuara(boolean idadeRandomica, Campo campo, Localizacao localizacao) {
 		super(idadeRandomica, campo, IDADE_MAXIMA);
 		setLocalizacao(localizacao);
@@ -24,11 +23,6 @@ public class LoboGuara extends Animais {
 		}
 	}
 
-	/*
-	 * ok // adicionei o incrementa fome aqui; // ajuste, agora o metodo incrementa
-	 * idade esta retornando uma localizacao, entao //fez-se necessario uma vaiavel
-	 * para armazenar o resultado.
-	 */
 	public void caca(List<LoboGuara> novosLobos) {
 		incrementaFome();
 		localizacao = incrementaIdade(IDADE_MAXIMA, localizacao);
@@ -46,10 +40,6 @@ public class LoboGuara extends Animais {
 		}
 	}
 
-	// ok
-	// Add ifs para testar se o animal e uma ovelha e se a ovelha esta viva;
-
-	// mudanca de Object para Animais
 	private Localizacao procuraComida(Localizacao localizacao) {
 
 		List<Localizacao> adjacente = getCampo().localizacoesAdjacentes(localizacao);
@@ -72,10 +62,6 @@ public class LoboGuara extends Animais {
 		return null;
 	}
 
-	/*
-	 * ok Correcao no for pois ele nao estava testando se haviam localizacoes
-	 * adjacentes livres para o filhote nascer;
-	 */
 	private void daALuz(List<LoboGuara> novosLobos) {
 		List<Localizacao> livre = getCampo().localizacoesAdjacentesLivres(getLocalizacao());
 		int nascimentos = procria(IDADE_PROCRIACAO, PROBABILIDADE_PROCRIACAO, TAMANHO_MAXIMO_NINHADA);
@@ -94,12 +80,10 @@ public class LoboGuara extends Animais {
 		getCampo().lugar(this, newLocalizacao);
 	}
 
-	/* Tested */
 	public Localizacao getLocalizacao() {
 		return this.localizacao;
 	}
 
-	/* tested */
 	private void incrementaFome() {
 		nivelFome--;
 		if (nivelFome == 0) {
@@ -107,9 +91,6 @@ public class LoboGuara extends Animais {
 		}
 	}
 
-	/*
-	 * ok Tested necessário criar pois a posicao nao estava sendo nula apos a morte.
-	 */
 	public void setMorte() {
 
 		super.setMorte(localizacao);
@@ -117,7 +98,6 @@ public class LoboGuara extends Animais {
 			localizacao = null;
 	}
 
-	/* Add metodo para facilitar testes */
 	public int getNivelFome() {
 		return nivelFome;
 	}

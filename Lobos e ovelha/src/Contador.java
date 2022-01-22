@@ -1,7 +1,3 @@
-//import java.awt.Color;
-
-//Nada muito grnade aqui nao, so organizacao mesmo.
-
 public class Contador {
 	private String name;
 	private int count;

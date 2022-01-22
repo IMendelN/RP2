@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println("Bem vindo ao simulador Predadeor-presa");
+		System.out.println("Bem vindo ao simulador Predador-presa");
 		configuraTamanhoCampo();
 		executaSimulacao();
 		s.close();

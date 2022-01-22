@@ -8,13 +8,11 @@ public class Ovelha extends Animais {
 
 	private Localizacao localizacao;
 
-	// ok
 	public Ovelha(boolean idadeRandomica, Campo campo, Localizacao localizacao) {
 		super(idadeRandomica, campo, IDADE_MAXIMA);
 		setLocalizacao(localizacao);
 	}
 
-	// Trocado de == para != na linha 34
 	public void corre(List<Ovelha> novasOvelhas) {
 		localizacao = incrementaIdade(IDADE_MAXIMA, localizacao);
 		if (estaVivo()) {
@@ -28,12 +26,10 @@ public class Ovelha extends Animais {
 		}
 	}
 
-	// ok
 	public Localizacao getLocalizacao() {
 		return localizacao;
 	}
 
-	// ok
 	private void setLocalizacao(Localizacao newLocalizacao) {
 		if (localizacao != null) {
 			getCampo().limpa(localizacao);
@@ -42,7 +38,6 @@ public class Ovelha extends Animais {
 		getCampo().lugar(this, newLocalizacao);
 	}
 
-	// add teste para analizar se existem campos adjacentes livres no "for".
 	private void daALuz(List<Ovelha> novasOvelhas) {
 		List<Localizacao> livre = getCampo().localizacoesAdjacentesLivres(localizacao);
 		int nascimentos = procria(IDADE_PROCRIACAO, PROBABILIDADE_PROCRIACAO, TAMANHO_MAXIMO_NINHADA);
