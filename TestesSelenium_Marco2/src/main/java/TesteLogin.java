@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TesteLogin {
-	public static WebDriver driver;
+	public static WebDriver driver = new ChromeDriver();
 	
 	@Before
 	public final void setUp() throws Exception {
@@ -19,7 +19,6 @@ public class TesteLogin {
 
 	@Test
 	public void test() {
-		WebDriver driver = new ChromeDriver();
 		driver.manage().window().setPosition(new Point(100, 100));
 		driver.manage().window().setSize(new Dimension(675, 450));
 		driver.get("http://www.lesse.com.br/tools/silverbullet/rp2");
@@ -27,17 +26,13 @@ public class TesteLogin {
 		assertEquals("dionasmuller.aluno@unipampa.edu.br",driver.findElement(By.id("email")).getAttribute("value"));
 		driver.findElement(By.id("password")).sendKeys("senhaTeste");
 		assertEquals("senhaTeste",driver.findElement(By.id("password")).getAttribute("value"));
-		driver.findElement(By.className("container-login100-form-btn")).click();
+		driver.findElement(By.id("login-submit")).click();
 		assertEquals("http://www.lesse.com.br/tools/silverbullet/rp2/projects", driver.getCurrentUrl());
-		driver.close();
 	}
 	
 	 @After
 	  public final void after() {
-		 try{
 		 driver.quit();
-		 }catch (Exception e) {
-		}
 	 }
 
 }
