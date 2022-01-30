@@ -18,20 +18,23 @@ public class TesteLogin {
 	}
 
 	@Test
-	public void test() {
+	public void test() throws InterruptedException {
 		driver.manage().window().setPosition(new Point(100, 100));
 		driver.manage().window().setSize(new Dimension(675, 450));
 		driver.get("http://www.lesse.com.br/tools/silverbullet/rp2");
+		Thread.sleep(5000);
 		driver.findElement(By.id("email")).sendKeys("dionasmuller.aluno@unipampa.edu.br");
 		assertEquals("dionasmuller.aluno@unipampa.edu.br",driver.findElement(By.id("email")).getAttribute("value"));
 		driver.findElement(By.id("password")).sendKeys("senhaTeste");
 		assertEquals("senhaTeste",driver.findElement(By.id("password")).getAttribute("value"));
 		driver.findElement(By.id("login-submit")).click();
+		Thread.sleep(1000);
 		assertEquals("http://www.lesse.com.br/tools/silverbullet/rp2/projects", driver.getCurrentUrl());
 	}
 	
 	 @After
-	  public final void after() {
+	  public final void after() throws InterruptedException {
+		 Thread.sleep(5000);
 		 driver.quit();
 	 }
 
